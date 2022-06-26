@@ -31,5 +31,4 @@ async function generateKeyShares(num, threshold) {
     const secret = shamir.combine([shares[0], shares[4], shares[5]], prime3217).toHex();
     // => 0xe9873d79c6d87dc0fb6a5778633389f4453213303da61f20bd67fc233aa33262
     console.log("combined secret:" + secret);
-
 }

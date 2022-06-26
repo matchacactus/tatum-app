@@ -1,17 +1,6 @@
-#!/usr/bin/env node
-import dotenv from 'dotenv';
-dotenv.config();
+const meow = require("meow");
 
-import meow from 'meow';
-import { Config, ConfigOption } from './config'
-const config = new Config()
-
-const axiosInstance = axios.create({
-    httpAgent: new http.Agent({ keepAlive: true }),
-    httpsAgent: new https.Agent({ keepAlive: true })
-});
-
-const { input: command, flags } = meow(`
+const { input: command } = meow(`
     Usage
         $ tatum-ssss command
 
@@ -44,10 +33,10 @@ const startup = async () => {
     }
     switch (command[0]) {
         case 'generate-key-shares':
-            await getAddress(command[1], command[2], flags.path);
+            await generateKeyShares(command[1], command[2]);
             break;
         default:
-            console.error('Unsupported command. Use tatum-kms --help for details.');
+            console.error('Unsupported command. Use tatum-ssss --help for details.');
             process.exit(-1);
     }
 };
