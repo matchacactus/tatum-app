@@ -12,5 +12,4 @@ The implementation utilized the Tatum API for wallet generation.
 
 # Run
 
-`node main.js`
-
+`node index.js --apikey='0d0978ea-92f9-44e1-803d-715dbfd4b568' --numshares=5 --threshold=3`
